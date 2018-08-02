@@ -50,7 +50,7 @@
 static int noop_handler(request_rec *r) {
     ap_set_content_type(r, "text/plain");
     ap_rputs("", r);
-    return OK;
+    return DONE;  /* Let apache know not to move on to other handlers */
 }
 
 static void noop_register_hooks(apr_pool_t *p) {
